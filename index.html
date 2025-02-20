@@ -5,47 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logitech BCC950 Webcam - p5.js Fullscreen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> <!-- For HLS Streams -->
 </head>
 <body>
-    <script>
-        let webcam;
+    <iframe src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e" width="100%" style="aspect-ratio: 16/9; min-height: 340px;" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen  webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-        let buffer;
+    <!-- <script>
+        let video, buffer;
+        let streamURL = "https://cdn3.wowza.com/1/LzhLdUlsTHQ5aG9k/YVZybnlS/hls/zhj0b9ss/480/chunklist.m3u8"; // Replace with your Castr HLS URL
 
-function setup() {
-    pixelDensity(1);
-    createCanvas(windowWidth, windowHeight);
-    buffer = createGraphics(640, 480); // Offscreen buffer for filtering
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            buffer = createGraphics(640, 480); // Offscreen buffer for filtering
 
-    selectLogitechCamera().then(deviceId => {
-        webcam = createCapture({
-            video: { deviceId: deviceId, width: 640, height: 480 }, 
-            audio: false
-        });
-        webcam.hide();
-    });
-}
+            video = createVideo();
+            video.hide(); // Hide the default video element
 
-function draw() {
-    background(0);
-    if (webcam) {
-        buffer.image(webcam, 0, 0, buffer.width, buffer.height);
-        buffer.filter(BLUR,5);  // Apply filter on a smaller buffer
-        image(buffer, 0, 0, width, height);  // Scale to fullscreen
-    }
-}
+            // Load Castr HLS Stream
+            if (Hls.isSupported()) {
+                let hls = new Hls();
+                hls.loadSource(streamURL);
+                hls.attachMedia(video.elt);
+            } else if (video.elt.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = streamURL; // Native HLS support (Safari)
+            }
 
-        async function selectLogitechCamera() {
-            const devices = await navigator.mediaDevices.enumerateDevices();
-            const logitechDevice = devices.find(device => 
-                device.kind === "videoinput" && device.label.includes("Logitech")
-            );
-            return logitechDevice ? logitechDevice.deviceId : undefined;
+            video.volume(0);
+            video.loop();
+        }
+
+        function draw() {
+            // background(0);
+            // if (video) {
+            //     buffer.image(video, 0, 0, buffer.width, buffer.height);
+            //     buffer.filter(BLUR, 10);  // Apply filter (change as needed)
+            //     image(buffer, 0, 0, width, height);
+            // }
         }
 
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);
         }
-    </script>
+    </script> -->
 </body>
 </html>
