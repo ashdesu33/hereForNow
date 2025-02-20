@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logitech BCC950 Webcam - p5.js Fullscreen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        let webcam;
+
+        let buffer;
+
+function setup() {
+    pixelDensity(1);
+    createCanvas(windowWidth, windowHeight);
+    buffer = createGraphics(640, 480); // Offscreen buffer for filtering
+
+    selectLogitechCamera().then(deviceId => {
+        webcam = createCapture({
+            video: { deviceId: deviceId, width: 640, height: 480 }, 
+            audio: false
+        });
+        webcam.hide();
+    });
+}
+
+function draw() {
+    background(0);
+    if (webcam) {
+        buffer.image(webcam, 0, 0, buffer.width, buffer.height);
+        buffer.filter(BLUR,5);  // Apply filter on a smaller buffer
+        image(buffer, 0, 0, width, height);  // Scale to fullscreen
+    }
+}
+
+        async function selectLogitechCamera() {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const logitechDevice = devices.find(device => 
+                device.kind === "videoinput" && device.label.includes("Logitech")
+            );
+            return logitechDevice ? logitechDevice.deviceId : undefined;
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+    </script>
+</body>
+</html>
