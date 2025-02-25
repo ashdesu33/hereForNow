@@ -6,9 +6,37 @@
     <title>Logitech BCC950 Webcam - p5.js Fullscreen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> <!-- For HLS Streams -->
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            background: rgb(255, 255, 255); /* Optional for better contrast */
+        }
+
+        iframe {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 120vw;
+            height: 120vh;;
+            border: none;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <iframe src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e" width="100%" style="aspect-ratio: 16/9; min-height: 340px;" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen  webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+    <iframe 
+    src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e?controls=0&autoplay=1&mute=1" 
+    allow="autoplay; fullscreen" 
+    webkitallowfullscreen 
+    mozallowfullscreen 
+    oallowfullscreen 
+    msallowfullscreen>
+    </iframe>
+    <!-- <iframe src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e" width="100%" style="height:100vh;width:100vw;" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen  webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
 
     <!-- <script>
         let video, buffer;
