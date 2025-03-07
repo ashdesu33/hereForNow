@@ -1,8 +1,37 @@
 :root {
     --main-blue: #0768A1;
     --main-white: #eeeeee;
+    --off-white: #abafba;
 
   }
+
+@font-face {
+    font-family: Authentic;
+    src: url('./src/type/AUTHENTICSans-60.otf') format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Authentic';
+    src: url('./src/type/AUTHENTICSans-90.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Authentic';
+    src: url('./src/type/AUTHENTICSans-130.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Authentic';
+    src: url('./src/type/AUTHENTICSans-150.otf') format('otf');
+    font-weight:bolder;
+    font-style: normal;
+}
 
  /* GLOBAL STYLES */
  body {
@@ -14,19 +43,16 @@
 .homepage {
     background-color: var(--main-blue);
     width: 100vw;
-    height: 200vh;
+    height: 800vh;
 }
 
 
 .clock {
     position: sticky;
-    left: 0;
-    right: 0;
-    top: 15px;
     margin: auto;
-    width: 95vw;
-    height: 95vh;
-    border: 1px solid var(--main-white);
+    width: 90vw;
+    height: 90vh;
+    border: .5px solid var(--main-white);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -44,7 +70,7 @@
     bottom: 50%;
     left: 50%;
     width: 1px;
-    height: 60%;
+    height: 40%;
     background-color: var(--main-white);
     transform-origin: bottom;
     transform: rotate(0deg);
@@ -52,6 +78,28 @@
 
 .second-hand {
     background-color: var(--main-white);
+}
+
+.name {
+    position: absolute;
+    font-size: 14px;
+    color: var(--main-white);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-family: 'Authentic';
+    font-weight: bolder;
+    opacity: 0.1;
+    transition: opacity 3s ease-out;
+}
+
+.name.show {
+    transition: opacity 0.2s ease-in; /* Quick fade-in */
+    opacity: 1; /* Make element visible quickly */
+}
+
+.name.hide {
+    transition: opacity 5s ease-out; /* Slow fade-out */
+    opacity: 0.1; /* Make element invisible slowly */
 }
 
 /* WEBCAM STYLES */
