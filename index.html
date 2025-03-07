@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logitech BCC950 Webcam - p5.js Fullscreen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> <!-- For HLS Streams -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> 
+    For HLS Streams 
     <style>
         html, body {
             margin: 0;
@@ -25,17 +27,33 @@
             border: none;
             pointer-events: none;
         }
-    </style>
+    </style> -->
 </head>
 <body>
-    <iframe 
+    <!-- HOMEPAGE -->
+    <div class="homepage">
+        <div class="clock">
+            <div class="clock-face">
+                <div class="clock-hand second-hand"></div>
+            </div>
+        </div>
+    </div>
+    <!-- WEBCAM -->
+
+    <!-- STATEMENT -->
+    <div class="statement">
+    </div>
+
+    <!-- <iframe 
     src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e?controls=0&autoplay=1&mute=1" 
     allow="autoplay; fullscreen" 
     webkitallowfullscreen 
     mozallowfullscreen 
     oallowfullscreen 
     msallowfullscreen>
-    </iframe>
+    </iframe> -->
+
+    
     <!-- <iframe src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e" width="100%" style="height:100vh;width:100vw;" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen  webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
 
     <!-- <script>
@@ -75,5 +93,7 @@
             resizeCanvas(windowWidth, windowHeight);
         }
     </script> -->
+    <script src="script.js"></script>
+
 </body>
 </html>
