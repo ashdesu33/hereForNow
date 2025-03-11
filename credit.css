@@ -1,0 +1,96 @@
+/* statement styles: */
+.texture-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url('bg_texture.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin:auto;
+  padding: 12px;
+}
+
+.statement{
+  padding: 100px 0px;
+  max-width: 80%;
+}
+
+.statement-logo{
+  height:auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.statement-text-container{
+  margin-top: 30%;
+  margin-left: auto;
+  display: block;
+  width: fit-content;
+}
+
+.statement-text{
+  color: #FFF;
+  font-family: "AUTHENTIC Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.logo-image{
+  width: 100%;
+}
+
+/* credit section styles: */
+.credit-section{
+  padding: 100px 0px;
+  max-width: 80%;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-rows: repeat(2, auto);
+  gap: 10px; 
+}
+.team-container{
+  min-width: 24vw;
+}
+
+.team-title{
+  color: #FFF;
+  font-family: "AUTHENTIC Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.names{
+  color: #FFF;
+  font-family: "AUTHENTIC Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1100px) {
+  .credit-section{
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .credit-section{
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 480px) {
+  .credit-section{
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
