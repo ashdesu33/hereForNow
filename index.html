@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="project.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="credit.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logitech BCC950 Webcam - p5.js Fullscreen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> 
+<<<<<<< HEAD
     For HLS Streams 
     <style>
         html, body {
@@ -56,6 +59,10 @@
         </div>
     </div>
 
+    <!-- GRID -->
+    <div id="test-grid"></div>
+
+    <!-- CREDITS -->
     <div class = "texture-container">
         <div class="credit-section">
             <div class = "team-container">
@@ -128,58 +135,14 @@
                 </p>
             </div>
     </div>
-
-
-    <!-- <iframe 
-    src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e?controls=0&autoplay=1&mute=1" 
-    allow="autoplay; fullscreen" 
-    webkitallowfullscreen 
-    mozallowfullscreen 
-    oallowfullscreen 
-    msallowfullscreen>
-    </iframe> -->
-
-    
-    <!-- <iframe src="https://player.castr.com/live_29cdeb30ef3911efa087217449e3bb2e" width="100%" style="height:100vh;width:100vw;" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen  webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
-
-    <!-- <script>
-        let video, buffer;
-        let streamURL = "https://cdn3.wowza.com/1/LzhLdUlsTHQ5aG9k/YVZybnlS/hls/zhj0b9ss/480/chunklist.m3u8"; // Replace with your Castr HLS URL
-
-        function setup() {
-            createCanvas(windowWidth, windowHeight);
-            buffer = createGraphics(640, 480); // Offscreen buffer for filtering
-
-            video = createVideo();
-            video.hide(); // Hide the default video element
-
-            // Load Castr HLS Stream
-            if (Hls.isSupported()) {
-                let hls = new Hls();
-                hls.loadSource(streamURL);
-                hls.attachMedia(video.elt);
-            } else if (video.elt.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = streamURL; // Native HLS support (Safari)
-            }
-
-            video.volume(0);
-            video.loop();
-        }
-
-        function draw() {
-            // background(0);
-            // if (video) {
-            //     buffer.image(video, 0, 0, buffer.width, buffer.height);
-            //     buffer.filter(BLUR, 10);  // Apply filter (change as needed)
-            //     image(buffer, 0, 0, width, height);
-            // }
-        }
-
-        function windowResized() {
-            resizeCanvas(windowWidth, windowHeight);
-        }
-    </script> -->
+    </div>
+</body>
     <script src="script.js"></script>
 
+
+    <!-- added -->
+    <script src="script.js"></script>
+    <script src="loadProject.js"></script>
+    
 </body>
 </html>
