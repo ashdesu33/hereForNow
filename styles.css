@@ -84,6 +84,11 @@
     background-color: var(--main-white);
     transform-origin: bottom;
     transform: rotate(0deg);
+    @media (max-width: 1250px) {
+        /* … */
+        height: 20%;
+
+    }
 }
 
 .second-hand {
