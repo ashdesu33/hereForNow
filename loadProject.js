@@ -4,6 +4,7 @@
          * method to load the local csv file
          * proceed to processCSV method to draw charts
          **/
+
  async function loadCSV() {
     const response = await fetch('projects_sheet.tsv'); 
     const data = await response.text();

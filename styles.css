@@ -50,6 +50,7 @@
 .clock {
     position: sticky;
     margin: auto;
+    margin-bottom: 5vh;
     width: 90vw;
     height: 90vh;
     border: .5px solid var(--main-white);

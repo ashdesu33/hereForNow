@@ -63,7 +63,7 @@ function addClockNumbers() {
 
     const xRadius = clockWidth/2; // The radius where the numbers will be placed (inside the clock)
     const yRadius = clockHeight/2;
-    const numberCount = names.length; // Total numbers (1 to 12)
+    const numberCount = names.length; // Total names
 
     // Loop through and create names
     for (let i = 0; i <= numberCount; i++) {
@@ -115,28 +115,42 @@ function findClosestValue(A, arr) {
 
 
 let secondHand = document.querySelector('.second-hand');
-let lastNameChanged = 0;
+let timer = null; 
 
 window.addEventListener('scroll', function() {
-    // Get the scroll position
-    let scrollPosition = window.scrollY;
+    if(timer !== null) {
+        clearTimeout(timer);      
+        // Get the scroll position
+        let scrollPosition = window.scrollY;
 
-    // Calculate the rotation of the second hand based on scroll position
-    let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
+        // Calculate the rotation of the second hand based on scroll position
+        let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
+    
+        // Apply the rotation to the second hand
+        secondHand.style.transform = `rotate(${rotation}deg)`;
+    
+        let value = findClosestValue(rotation, nameAngle)
+        nameElements[value].classList.remove("hide")
+        nameElements[value].classList.add("show");
+    
+        setTimeout(() => {
+            nameElements[value].classList.remove("show");
+            nameElements[value].classList.add("hide");    
+        }, 200);  
+    }
+    timer = setTimeout(function() {
+          // do something
+          let scrollPosition = window.scrollY;
 
-    // Apply the rotation to the second hand
-    secondHand.style.transform = `rotate(${rotation}deg)`;
-
-    let value = findClosestValue(rotation, nameAngle)
-    nameElements[value].classList.remove("hide")
-    nameElements[value].classList.add("show");
-
-    setTimeout(() => {
-        nameElements[value].classList.remove("show");
-        nameElements[value].classList.add("hide");    
+          // Calculate the rotation of the second hand based on scroll position
+          let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
+  
+          let value = findClosestValue(rotation, nameAngle)
+          console.log(value)
+          nameElements[value].classList.remove("hide")
+          nameElements[value].classList.add("show");
     }, 200);
-    lastNameChanged = value
-
-    // console.log(nameAngle)
-    // console.log(rotation)
 });
+
+
+
