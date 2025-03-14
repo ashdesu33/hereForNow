@@ -113,7 +113,6 @@ function findClosestValue(A, arr) {
     return closestIndex;
 }
 
-
 let secondHand = document.querySelector('.second-hand');
 let timer = null; 
 

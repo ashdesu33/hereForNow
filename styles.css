@@ -48,6 +48,8 @@
 
 
 .clock {
+    -webkit-filter: drop-shadow( 0px 0px 3px var(--main-white));
+    filter: drop-shadow( 0px 0px 3px var(--main-white));
     position: sticky;
     margin: auto;
     margin-bottom: 5vh;
@@ -58,6 +60,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo-svg {
+    position: absolute;
+    width: 24vw;
+    -webkit-filter: drop-shadow( 0px 0px 5px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow( 0px 0px 5px rgba(255, 255, 255, 0.5));
 }
 
 .clock-face {
