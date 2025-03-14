@@ -98,7 +98,7 @@
 }
 
 .name.hide {
-    transition: opacity 5s ease-out; /* Slow fade-out */
+    transition: opacity 3s ease-out; /* Slow fade-out */
     opacity: 0.1; /* Make element invisible slowly */
 }
 
