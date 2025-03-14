@@ -1,6 +1,8 @@
 let width = window.innerWidth;
 let height = window.innerHeight;
 
+let mobile = (width < 800)
+
 // names of everyone in the show
 const names = [
    { name: "Andrew Liu", website: "" },
@@ -38,7 +40,7 @@ const names = [
    { name: "Varissara Patiparnprechavut", website: "" },
    { name: "Wenqing Ma", website: "" },
    { name: "Yeriel Jeong", website: "" },
-   { name: "Zeyu Shen", website: "" }
+   { name: "Zeyu Shen", website: "" },
 ];
 
 let nameAngle = []
@@ -53,7 +55,6 @@ const clockFace = document.querySelector('.clock-face');
 let clockHeight = parseFloat(clockStyle.height);
 //set clock style for margin top, so we can use that to position the names
 let marginTop = (height - clockHeight)/2;
-console.log(marginTop)
 clock.style.top = marginTop+"px"
 
 
@@ -61,9 +62,13 @@ function addClockNumbers() {
     let clockWidth = parseFloat(clockStyle.width);
     let clockHeight = parseFloat(clockStyle.height);
 
-    const xRadius = clockWidth/2; // The radius where the numbers will be placed (inside the clock)
-    const yRadius = clockHeight/2;
+    let xRadius = clockWidth/2; // The radius where the numbers will be placed (inside the clock)
+    let yRadius = clockHeight/2;
     const numberCount = names.length; // Total names
+
+    if (mobile) {
+        xRadius = xRadius - 20;
+    }
 
     // Loop through and create names
     for (let i = 0; i <= numberCount; i++) {
@@ -82,8 +87,9 @@ function addClockNumbers() {
 
         number.style.left = `${x}px`;
         number.style.top = `${y}px`;
-        number.textContent = names[i];
-        
+        if (names[i]) {
+            number.textContent = names[i].name;
+        }
         clockFace.appendChild(number);
     }
 }
@@ -145,7 +151,6 @@ window.addEventListener('scroll', function() {
           let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
   
           let value = findClosestValue(rotation, nameAngle)
-          console.log(value)
           nameElements[value].classList.remove("hide")
           nameElements[value].classList.add("show");
     }, 200);
