@@ -110,7 +110,7 @@ function observeProjects() {
                 observer.unobserve(entry.target); // Stop observing once it's loaded
             }
         });
-    }, { threshold: 0.3 }); // Trigger when 30% of the element is visible
+    }, { threshold: 0.1 }); // Trigger when 30% of the element is visible
 
     $(".project.hidden").each(function () {
         observer.observe(this);
@@ -122,7 +122,7 @@ function observeProjects() {
  * Load more projects when reaching the bottom
  */
 $(window).on("scroll", function () {
-    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 300) {
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.5) {
         loadMoreProjects(); // Load more projects when near bottom
     }
 });
@@ -130,3 +130,14 @@ $(window).on("scroll", function () {
 // Start fetching and loading projects
 fetchTSV();
 });
+
+var options = {
+    animate: true,
+    patternWidth: 100,
+    patternHeight: 100,
+    grainOpacity: 0.3,
+    grainDensity: 5,
+    grainWidth: 1,
+    grainHeight: 1
+};
+grained('#grained', options);
