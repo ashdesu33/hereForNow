@@ -16,7 +16,6 @@ const names = [
    { name: "Hannah Jeong", website: "" },
    { name: "Hyun Jun Yoo", website: "" },
    { name: "Isabel Lee", website: "" },
-   { name: "Jasmine Shen", website: "" },
    { name: "Jeanie Yu", website: "" },
    { name: "Jolin Chen", website: "" },
    { name: "Jyot Thind", website: "" },
@@ -39,6 +38,7 @@ const names = [
    { name: "Varissara Patiparnprechavut", website: "" },
    { name: "Wenqing Ma", website: "" },
    { name: "Yeriel Jeong", website: "" },
+   { name: "Zeyu Shen", website: "" }
 ];
 
 let nameAngle = []
