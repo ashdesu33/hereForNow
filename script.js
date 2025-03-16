@@ -92,10 +92,10 @@ function addClockNumbers() {
             const link = document.createElement('a');
             if (names[i].website) {
                 link.href = names[i].website;  // Set the URL for the link (you can adjust how the URL is determined)
-                link.textContent = names[i].name;  // Set the text content to the name
                 number.classList.add("name")
                 link.target = "_blank";  // This ensures the link opens in a new tab
             }
+            link.textContent = names[i].name;  // Set the text content to the name
             // Append the link to the number div
             number.appendChild(link);
         }    
