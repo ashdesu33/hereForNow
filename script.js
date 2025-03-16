@@ -5,38 +5,38 @@ let mobile = (width < 800)
 
 // names of everyone in the show
 const names = [
-   { name: "Andrew Liu", website: "" },
-   { name: "Anh Nguyen", website: "" },
-   { name: "Aniyah Lee", website: "" },
-   { name: "Anja Drakulovic", website: "" },
-   { name: "Ashley Cai", website: "" },
-   { name: "Avery Browne", website: "" },
-   { name: "Brianna Cheng", website: "" },
-   { name: "Chanya Vitayakul", website: "" },
+   { name: "Andrew Liu", website: "https://andrewliu.site/" },
+   { name: "Anh Nguyen", website: "https://jillymun.art/" },
+   { name: "Aniyah Lee", website: "https://aniyahjleedesign.com" },
+   { name: "Anja Drakulovic", website: "https://www.instagram.com/adrakulo" },
+   { name: "Ashley Cai", website: "https://ashleycai.com/" },
+   { name: "Avery Browne", website: "https://www.averybrowne.com/" },
+   { name: "Brianna Cheng", website: "briannacheng.com" },
+   { name: "Chanya Vitayakul", website: "https://chanyavita.com/" },
    { name: "Daniela Guerra Fioranelli", website: "" },
    { name: "Erica Yun", website: "" },
-   { name: "Hannah Jeong", website: "" },
+   { name: "Hannah Jeong", website: "https://hannahjeong.com/" },
    { name: "Hyun Jun Yoo", website: "" },
    { name: "Isabel Lee", website: "" },
-   { name: "Jeanie Yu", website: "" },
+   { name: "Jeanie Yu", website: "https://jeanieyu.com/" },
    { name: "Jolin Chen", website: "" },
    { name: "Jyot Thind", website: "" },
    { name: "Leonardo Calzone", website: "" },
-   { name: "Li Huang", website: "" },
-   { name: "Li June Choi", website: "" },
-   { name: "Macaque Jagusah", website: "" },
+   { name: "Li Huang", website: "https://lihuang.space/" },
+   { name: "Li June Choi", website: "https://lijune.cargo.site/" },
+   { name: "Macaque Jagusah", website: "https://www.instagram.com/mix.macaque/" },
    { name: "Mandy Liu", website: "" },
-   { name: "Miko Sellier", website: "" },
+   { name: "Miko Sellier", website: "https://mikospla.net" },
    { name: "Minah Kim", website: "" },
-   { name: "Radhika Chauhan", website: "" },
+   { name: "Radhika Chauhan", website: "https://radhikachauhan.com/" },
    { name: "Ritvi Gilara", website: "" },
-   { name: "Ryan Yan", website: "" },
+   { name: "Ryan Yan", website: "https://ryanyan.ca/" },
    { name: "Sara Hu", website: "" },
    { name: "Scarlett Wang", website: "" },
-   { name: "Sejal Gupta", website: "" },
+   { name: "Sejal Gupta", website: "https://sejalgupta.com/" },
    { name: "Siyuan Wang", website: "" },
-   { name: "Sophie Feng", website: "" },
-   { name: "Un Jingjang", website: "" },
+   { name: "Sophie Feng", website: "https://sophie-feng.com/" },
+   { name: "Un Jingjang", website: "https://unjingjang.com/" },
    { name: "Varissara Patiparnprechavut", website: "" },
    { name: "Wenqing Ma", website: "" },
    { name: "Yeriel Jeong", website: "" },
@@ -88,8 +88,17 @@ function addClockNumbers() {
         number.style.left = `${x}px`;
         number.style.top = `${y}px`;
         if (names[i]) {
-            number.textContent = names[i].name;
-        }
+            // Create a new anchor tag for each name
+            const link = document.createElement('a');
+            if (names[i].website) {
+                link.href = names[i].website;  // Set the URL for the link (you can adjust how the URL is determined)
+                link.textContent = names[i].name;  // Set the text content to the name
+                number.classList.add("name")
+                link.target = "_blank";  // This ensures the link opens in a new tab
+            }
+            // Append the link to the number div
+            number.appendChild(link);
+        }    
         clockFace.appendChild(number);
     }
 }
