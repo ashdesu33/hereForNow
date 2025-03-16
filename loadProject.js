@@ -136,8 +136,9 @@ var options = {
     patternWidth: 100,
     patternHeight: 100,
     grainOpacity: 0.3,
-    grainDensity: 5,
+    grainDensity: 4,
     grainWidth: 1,
-    grainHeight: 1
+    grainHeight: 1,
+    grainSpeed: 1
 };
 grained('#grained', options);
