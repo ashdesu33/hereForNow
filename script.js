@@ -9,6 +9,7 @@ const names = [
    { name: "Anh Nguyen", website: "https://jillymun.art/" },
    { name: "Aniyah Lee", website: "https://aniyahjleedesign.com" },
    { name: "Anja Drakulovic", website: "https://www.instagram.com/adrakulo" },
+   { name: "Ash Ma", website: "https://ashdesu.info/" },
    { name: "Ashley Cai", website: "https://ashleycai.com/" },
    { name: "Avery Browne", website: "https://www.averybrowne.com/" },
    { name: "Brianna Cheng", website: "briannacheng.com" },
@@ -38,7 +39,6 @@ const names = [
    { name: "Sophie Feng", website: "https://sophie-feng.com/" },
    { name: "Un Jingjang", website: "https://unjingjang.com/" },
    { name: "Varissara Patiparnprechavut", website: "" },
-   { name: "Wenqing Ma", website: "" },
    { name: "Yeriel Jeong", website: "" },
    { name: "Zeyu Shen", website: "" },
 ];
