@@ -44,11 +44,18 @@
 }
 .project-title{
     font-weight: 600;
+    font-size: 1em;
 }
-.project-author,.project-media{
+.project-author{
     font-weight: 400;
     margin:5px 0 0 0;
 }
+
+.project-media {
+    font-weight: 400;
+    color: #8ab3c9;
+}
+
 hr{
     border-top: solid #0863aa 1px;
  }

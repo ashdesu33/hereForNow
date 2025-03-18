@@ -122,7 +122,7 @@ function observeProjects() {
  * Load more projects when reaching the bottom
  */
 $(window).on("scroll", function () {
-    if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.5) {
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.1) {
         loadMoreProjects(); // Load more projects when near bottom
     }
 });

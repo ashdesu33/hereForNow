@@ -9,7 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   margin:auto;
-  padding: 12px;
+  /* padding: 12px; */
 }
 
 .statement{
@@ -33,9 +33,9 @@
 .statement-text{
   color: #FFF;
   font-family: "AUTHENTIC Sans";
-  font-size: 20px;
+  font-size: 1em;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
 }
 
@@ -45,23 +45,27 @@
 
 /* credit section styles: */
 .credit-section{
-  padding: 100px 0px;
+  padding-top: 100px;
+  margin:auto;
   max-width: 80%;
   display:grid;
   grid-template-columns: repeat(4, 1fr); 
   grid-template-rows: repeat(2, auto);
   gap: 10px; 
+  font-size: 1em;
+  margin-bottom: 3em;
 }
 .team-container{
   min-width: 24vw;
+  margin-bottom: 3em;
 }
 
 .team-title{
   color: #FFF;
   font-family: "AUTHENTIC Sans";
-  font-size: 20px;
+  /* font-size: 20px; */
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: normal;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -70,7 +74,7 @@
 .names{
   color: #FFF;
   font-family: "AUTHENTIC Sans";
-  font-size: 18px;
+  /* font-size: 18px; */
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
