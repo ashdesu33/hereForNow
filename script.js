@@ -129,7 +129,14 @@ function findClosestValue(A, arr) {
 }
 
 let secondHand = document.querySelector('.second-hand');
+let hourHand = document.querySelector('.hour-hand');
+
 let timer = null; 
+
+const d = new Date();
+let hourRotation = ((d.getHours() % 12) * 30)
+hourHand.style.transform = `rotate(${hourRotation}deg)`;
+
 
 window.addEventListener('scroll', function() {
     if(timer !== null) {
@@ -139,7 +146,7 @@ window.addEventListener('scroll', function() {
 
         // Calculate the rotation of the second hand based on scroll position
         let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
-    
+
         // Apply the rotation to the second hand
         secondHand.style.transform = `rotate(${rotation}deg)`;
     

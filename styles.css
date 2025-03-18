@@ -91,19 +91,28 @@
     bottom: 50%;
     left: 50%;
     width: 1px;
-    height: 40%;
+
     background-color: var(--main-white);
     transform-origin: bottom;
     transform: rotate(0deg);
-    @media (max-width: 800px) {
-        /* … */
-        height: 20%;
-
-    }
 }
 
 .second-hand {
     background-color: var(--main-white);
+    height: 40%;
+    @media (max-width: 800px) {
+        /* … */
+        height: 20%;
+    }
+}
+
+.hour-hand {
+    background-color: var(--main-white);
+    height: 20%;
+    @media (max-width: 800px) {
+        /* … */
+        height: 10%;
+    }
 }
 
 .name {
@@ -139,7 +148,10 @@
     }
 }
 
-.name {
+.name:hover {
+    -webkit-filter: drop-shadow( 0px 0px 3px var(--main-white));
+    filter: drop-shadow( 0px 0px 3px var(--main-white));
+    opacity: 1;
 }
 
 a:link,

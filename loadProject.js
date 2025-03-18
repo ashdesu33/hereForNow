@@ -14,9 +14,9 @@
 //     }
 // };
 
-$(document).ready(() => {
-    startCam();
-});
+// $(document).ready(() => {
+//     startCam();
+// });
  /**
          * method to load the local csv file
          * proceed to processCSV method to draw charts

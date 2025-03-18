@@ -45,18 +45,17 @@
 
 /* credit section styles: */
 .credit-section{
-  padding-top: 100px;
+  padding-top: 20vh;
   margin:auto;
-  max-width: 80%;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr); 
-  grid-template-rows: repeat(2, auto);
-  gap: 10px; 
+  max-width: 80vw;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   font-size: 1em;
   margin-bottom: 3em;
 }
 .team-container{
-  min-width: 24vw;
+  width: 25%;
   margin-bottom: 3em;
 }
 
