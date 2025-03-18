@@ -1,18 +1,18 @@
 
-const startCam = () => {
-    const video = document.getElementById('video');
-    if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                video.srcObject = stream;
-            })
-            .catch(error => {
-                console.error("Something went wrong!", error);
-            });
-    } else {
-        console.log("getUserMedia not supported on your browser!");
-    }
-};
+// const startCam = () => {
+//     const video = document.getElementById('video');
+//     if (navigator.mediaDevices.getUserMedia) {
+//         navigator.mediaDevices.getUserMedia({ video: true })
+//             .then(stream => {
+//                 video.srcObject = stream;
+//             })
+//             .catch(error => {
+//                 console.error("Something went wrong!", error);
+//             });
+//     } else {
+//         console.log("getUserMedia not supported on your browser!");
+//     }
+// };
 
 $(document).ready(() => {
     startCam();
