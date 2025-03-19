@@ -453,9 +453,21 @@ hr{
     line-height: 28px;
     letter-spacing: 1px;
   }
+
+  /* mobile student list */
   .mobile-student-list{
     display: none;
   }
+
+  .student-item {
+    cursor: default;
+    padding: 5px 0;
+}
+
+.student-item.clickable {
+    color: #ffffff; 
+    cursor: pointer;
+}
   
   @media (max-width: 1100px) {
     .credit-section{

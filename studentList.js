@@ -10,3 +10,23 @@ function toggleList() {
     title.textContent = "Exhibitor List <";  // Collapsed state
 }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const studentListContainer = document.getElementById("student-names");
+
+  names.forEach(student => {
+      const studentItem = document.createElement("div");
+      studentItem.textContent = student.name;
+      studentItem.classList.add("student-item");
+
+      // Check if the student has a website
+      if (student.website) {
+          studentItem.classList.add("clickable");
+          studentItem.addEventListener("click", () => {
+              window.open(student.website, "_blank"); // Open in new tab
+          });
+      }
+
+      studentListContainer.appendChild(studentItem);
+  });
+});
