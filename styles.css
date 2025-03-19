@@ -487,12 +487,12 @@ hr{
 }
 
 /* sticky button */
-#sticky-button {
+#sticky-button{
     position: fixed;
-    width: 170px;
-    height: 170px;
-    bottom: 20px;
-    right: 20px;
+    width: 130px;
+    height: 130px;
+    bottom: 58px;
+    right: 16px;
     z-index: 100;
     color: white;
     border: none;
@@ -503,7 +503,48 @@ hr{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* Initially hidden */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
+
+/* sticky button */
+#credit-button {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: fixed;
+    width: 130px;
+    height: auto;
+    bottom: 16px;
+    right: -4px;
+    z-index: 100;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 24px;
+
+    /* Initially hidden */
+    opacity: 0;
+    background: url('credit-button-bg.png'); 
+    background: url('credit-button-bg.png') no-repeat center center;
+    background-size: contain; 
+    background-color: transparent;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#credit-button:hover, #sticky-button:hover{
+    opacity: 0.7;       
+}
+
+
   /* Adjust aspect ratio dynamically */
 @media screen and (max-aspect-ratio: 16/9) { 
 
