@@ -121,25 +121,52 @@ function observeProjects() {
 /**
  * Load more projects when reaching the bottom
  */
-let lastScrollTop = 0;
-let isLoading = false; // Prevents multiple triggers
+// let lastScrollTop = 0; // Initialize variable to store the last scroll position
+
+// $(window).on("scroll", function () {
+//     let currentScrollTop = $(this).scrollTop();
+
+//     if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.8) {
+
+//         if (currentScrollTop > lastScrollTop) {
+//             console.log("test")
+//             loadMoreProjects(); // Load more projects when near bottom
+//         }
+//     }
+//     lastScrollTop = currentScrollTop;
+// });
+let loadedBatches = 0;
+const maxBatches = 16; // Prevent excessive calls
+let isLoading = false;
 
 $(window).on("scroll", function () {
     let currentScrollTop = $(this).scrollTop();
 
-    if (!isLoading && $(window).scrollTop() + $(window).height() >= $(document).height() * 0.8) {
+    if (!isLoading && loadedBatches < maxBatches && $(window).scrollTop() + $(window).height() >= $(document).height() * 0.8) {
         if (currentScrollTop > lastScrollTop) {
-            isLoading = true; // Set loading state
-            console.log("Loading more projects...");
-
+            
+            console.log("Loading more...");
             loadMoreProjects();
+         loadedBatches++; // Keep track of loaded batches
 
-            setTimeout(() => { isLoading = false; }, 1000); // Delay next trigger
         }
     }
 
     lastScrollTop = currentScrollTop;
 });
+// document.addEventListener("DOMContentLoaded", function () {
+//     let observer = new IntersectionObserver((entries) => {
+//         entries.forEach((entry) => {
+//             if (entry.isIntersecting) {
+//                 console.log("Triggering load...");
+//                 loadMoreProjects();
+//             }
+//         });
+//     }, { threshold: 1.0 });
+
+//     let loadTrigger = document.getElementById("load-trigger");
+//     observer.observe(loadTrigger);
+// });
 
 // Start fetching and loading projects
 fetchTSV();
