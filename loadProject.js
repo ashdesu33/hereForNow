@@ -144,14 +144,11 @@ $(window).on("scroll", function () {
 
     if (!isLoading && loadedBatches < maxBatches && $(window).scrollTop() + $(window).height() >= $(document).height() * 0.8) {
         if (currentScrollTop > lastScrollTop) {
-            isLoading = true; // Prevent multiple triggers
-
+            
             console.log("Loading more...");
             loadMoreProjects();
+         loadedBatches++; // Keep track of loaded batches
 
-            loadedBatches++; // Keep track of loaded batches
-
-            setTimeout(() => { isLoading = false; }, 500); // Delay to prevent spam
         }
     }
 
