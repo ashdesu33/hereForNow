@@ -164,6 +164,367 @@ a:active {
 
 /* WEBCAM STYLES */
 
+/* statement styles: */
+
+p {
+    margin: 0;
+}
+
+.index{
+    color:#0D6BA5;
+    font-size: 1em;
+    letter-spacing: 2px;
+    padding: 20px 0px 12px 0px;
+}
+.texture-container{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-image: url('texture_compressed.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* padding: 12px; */
+  }
+  
+  .statement{
+    padding: 3em 0px;
+    width: 90%;
+    max-width: 1000px;
+  }
+  
+  .statement-logo{
+    height:auto;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .statement-text-container{
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+  }
+  
+  .statement-text{
+    color: #FFF;
+    font-family: "AUTHENTIC Sans";
+    font-size: 1em;
+    line-height: 25px;
+    font-style: normal;
+    letter-spacing: 0.5px;
+    font-weight: 200;
+  }
+  
+  .logo-image{
+    width: 100%;
+  }
+
 /* INDEX STYLES */
+#video{
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+    position:fixed;
+    top:-20;
+    left:-10;
+    margin:0;
+    object-fit: cover;
+}
+#grained{
+    position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+}
+#test-grid{
+    padding: 0 5% 0 5%;
+    display:grid;
+    /* background-image: url('texture_compressed.jpg'); */
+    width: 90%;
+    padding:0 5% 0 5%;
+}
+
+.project{
+    aspect-ratio: 1 /1.5;
+    font-family: 'AUTHENTIC Sans';
+    max-width: 100%;
+    font-weight: bolder;
+    border: solid #0071b7 0.5px;
+    color:#0D6BA5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: stretch; 
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);;
+}
+.project-info{
+    line-height: 20px;
+    padding:0 5% 5% 5%;
+}
+.project-title{
+    font-weight: normal;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.project-author{
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+}
+
+.project-media {
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    color: #8ab3c9;
+}
+
+hr{
+    border-top: solid #0863aa 1px;
+    margin: 0;
+ }
+ 
+ .project-image img, 
+ .project-image video {
+     width: 100%;
+     height: auto;
+     object-fit: cover; /* Crops excess if the image is too long */
+     filter: grayscale(1);
+ }
+ 
+ .project-image {
+     position: relative;
+     width: 100%;
+     height: auto;
+     display: flex;
+ }
+ 
+ .project-image::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #ffffff;
+     mix-blend-mode: darken;
+     pointer-events: none; /* So it doesn’t block interactions */
+ }
+ .project-image::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #0071b7;
+     mix-blend-mode: screen;
+     pointer-events: none; /* So it doesn’t block interactions */
+     opacity: 1;
+     transition:opacity ease-in 0.5s;
+ }
+ 
+ 
+
+#test-grid{
+    /* padding: 0 5% 0 5%; */
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 90%;
+}
+.project{
+    aspect-ratio: 1 /1.8;
+    font-family: 'AUTHENTIC Sans';
+    max-width: 100%;
+    font-weight: normal;
+    border: solid #0D6BA5 0.5px;
+    color:#0D6BA5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: stretch; 
+    overflow: hidden;
+}
+.project-info{
+    line-height: 20px;
+    padding:0 5% 5% 5%;
+}
+
+.project-title{
+    font-weight: 400;
+}
+.project-author,.project-media{
+    font-weight: 400;
+}
+
+hr{
+   border-top: solid #0D6BA5 1px;
+}
+
+.project-image img, 
+.project-image video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Crops excess if the image is too long */
+    filter: grayscale(1);
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.project-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    mix-blend-mode: darken;
+    pointer-events: none; /* So it doesn’t block interactions */
+}
+.project-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0863aa;
+    mix-blend-mode: screen;
+    pointer-events: none; /* So it doesn’t block interactions */
+    opacity: 1;
+    transition:opacity ease-in 0.5s;
+}
+
+.project:hover .project-image img {
+    filter:grayscale(0);
+}
+.project:hover .project-image::after{
+    opacity: 0;
+}
+
+
 
 /* FOOTER STYLES */
+.credit-section{
+    width: 90%;
+    padding-top: 20vh;
+    margin:auto;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr); 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1em;
+    margin-bottom: 3em;
+  }
+  .team-container{
+    margin-bottom: 3em;
+  }
+  .team-title{
+    color: #FFF;
+    font-family: "AUTHENTIC Sans";
+    /* font-size: 20px; */
+    font-style: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    border-bottom: 1px solid white;
+    padding: 4px 0px;
+    width: 80%;
+  }
+  
+  .names{
+    color: #FFF;
+    font-family: "AUTHENTIC Sans";
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 1px;
+  }
+  .mobile-student-list{
+    display: none;
+  }
+  
+  @media (max-width: 1100px) {
+    .credit-section{
+      grid-template-columns: repeat(3, 1fr); 
+    }
+    #test-grid{
+        display:grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 90%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .credit-section{
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    #test-grid{
+        display:grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        width: 90%;
+    }
+    .mobile-student-list {
+        margin: auto;
+        display: block;
+        width: 90%;
+        color: #FFF;
+        font-family: "AUTHENTIC Sans";
+        font-size: 1em;
+        font-weight: 400;
+        line-height: 2em;
+        letter-spacing: 0.5px;
+        text-align: center;
+        padding: 1em 0;
+        margin: 3em auto;
+        font-weight: 200;
+    }
+    .mobile-student-list-title {
+        color: #FFF;
+        font-family: "AUTHENTIC Sans";
+        text-align: center;
+        font-style: normal;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        padding: 0.5em 0;
+        margin: 0 0 1em 0;
+        border-bottom: 1px solid white;
+        cursor: pointer; /* Make it look clickable */
+    }
+    
+    /* Initially hidden */
+    .student-names {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    /* Expanded state */
+    .student-names.show {
+        max-height: 1400px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .credit-section{
+    width: 80%;
+    grid-template-columns: repeat(1, 1fr); 
+    }
+    #test-grid{
+        display:grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        width: 90%;
+    }
+  }

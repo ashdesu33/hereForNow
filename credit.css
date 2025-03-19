@@ -1,5 +1,6 @@
 /* statement styles: */
 .texture-container{
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +9,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin:auto;
   /* padding: 12px; */
 }
 
@@ -24,7 +24,6 @@
 }
 
 .statement-text-container{
-  margin-top: 30%;
   margin-left: auto;
   display: block;
   width: fit-content;
@@ -34,9 +33,10 @@
   color: #FFF;
   font-family: "AUTHENTIC Sans";
   font-size: 1em;
+  line-height: 25px;
   font-style: normal;
+  letter-spacing: 0.5px;
   font-weight: 200;
-  line-height: normal;
 }
 
 .logo-image{
@@ -58,14 +58,12 @@
   width: 25%;
   margin-bottom: 3em;
 }
-
 .team-title{
   color: #FFF;
   font-family: "AUTHENTIC Sans";
   /* font-size: 20px; */
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -73,7 +71,7 @@
 .names{
   color: #FFF;
   font-family: "AUTHENTIC Sans";
-  /* font-size: 18px; */
+  font-size: 1em;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
