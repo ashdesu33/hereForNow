@@ -43,21 +43,16 @@
     padding:0 5% 5% 5%;
 }
 .project-title{
-    font-weight: normal;
+    font-weight: 600;
     font-size: 1em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 .project-author{
     font-weight: 400;
-    font-size: 1em;
-    letter-spacing: 0.5px;
+    margin:5px 0 0 0;
 }
 
 .project-media {
     font-weight: 400;
-    font-size: 1em;
-    letter-spacing: 0.5px;
     color: #8ab3c9;
 }
 
@@ -138,10 +133,11 @@ hr{
 }
 
 .project-title{
-    font-weight: 400;
+    font-weight: 600;
 }
 .project-author,.project-media{
     font-weight: 400;
+    margin:5px 0 0 0;
 }
 
 hr{

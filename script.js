@@ -15,7 +15,6 @@ const names = [
    { name: "Brianna Cheng", website: "briannacheng.com" },
    { name: "Chanya Vitayakul", website: "https://chanyavita.com/" },
    { name: "Daniela Guerra Fioranelli", website: "danielaguerra.com" },
-   { name: "Erica Yun", website: "" },
    { name: "Hannah Jeong", website: "https://hannahjeong.com/" },
    { name: "Hyun Jun Yoo", website: "" },
    { name: "Isabel Lee", website: "http://isabellee.co" },
