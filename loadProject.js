@@ -118,30 +118,19 @@ function observeProjects() {
     });
 }
 
-function debounce(func, wait) {
-    let timeout;
-    return function () {
-        const context = this, args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-}
-
-// Adjusting scroll event to reduce load triggers
-let lastScrollTop = 0;
-const scrollThreshold = 100; // Minimum pixels to scroll before triggering
-
-$(window).on("scroll", debounce(function () {
-    let scrollTop = $(window).scrollTop();
-
-    // Only trigger if user scrolled down significantly (prevents minor movements triggering it)
-    if (scrollTop > lastScrollTop + scrollThreshold) {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height() * 0.1) {
-            loadMoreProjects(); // Load more projects when near the bottom
+/**
+ * Load more projects when reaching the bottom
+ */
+$(window).on("scroll", function () {
+    if ($(window).width() <= 768){
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.5) {
+            loadMoreProjects(); 
         }
-        lastScrollTop = scrollTop; // Update last scroll position
     }
-}, 10));
+    else if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.1) {
+        loadMoreProjects(); 
+    }
+});
 
 // Start fetching and loading projects
 fetchTSV();
