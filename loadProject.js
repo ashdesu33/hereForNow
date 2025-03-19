@@ -121,18 +121,23 @@ function observeProjects() {
 /**
  * Load more projects when reaching the bottom
  */
-let lastScrollTop = 0; // Initialize variable to store the last scroll position
+let lastScrollTop = 0;
+let isLoading = false; // Prevents multiple triggers
 
 $(window).on("scroll", function () {
     let currentScrollTop = $(this).scrollTop();
 
-    if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.8) {
-
+    if (!isLoading && $(window).scrollTop() + $(window).height() >= $(document).height() * 0.8) {
         if (currentScrollTop > lastScrollTop) {
-            console.log("test")
-            loadMoreProjects(); // Load more projects when near bottom
+            isLoading = true; // Set loading state
+            console.log("Loading more projects...");
+
+            loadMoreProjects();
+
+            setTimeout(() => { isLoading = false; }, 1000); // Delay next trigger
         }
     }
+
     lastScrollTop = currentScrollTop;
 });
 
