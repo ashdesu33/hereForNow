@@ -6,7 +6,7 @@
   }
 
 @font-face {
-    font-family: Authentic;
+    font-family: 'Authentic';
     src: url('./src/type/AUTHENTICSans-60.otf') format('opentype');
     font-weight: lighter;
     font-style: normal;
@@ -210,7 +210,7 @@ p {
   
   .statement-text{
     color: #FFF;
-    font-family: "AUTHENTIC Sans";
+    font-family: 'Authentic';
     font-size: 1em;
     line-height: 25px;
     font-style: normal;
@@ -251,7 +251,7 @@ p {
 
 .project{
     aspect-ratio: 1 /1.5;
-    font-family: 'AUTHENTIC Sans';
+    font-family: 'Authentic';
     max-width: 100%;
     font-weight: bolder;
     border: solid #0071b7 0.5px;
@@ -341,7 +341,7 @@ hr{
 }
 .project{
     aspect-ratio: 1 /1.8;
-    font-family: 'AUTHENTIC Sans';
+    font-family: 'Authentic';
     max-width: 100%;
     font-weight: normal;
     border: solid #0D6BA5 0.5px;
@@ -434,7 +434,7 @@ hr{
   }
   .team-title{
     color: #FFF;
-    font-family: "AUTHENTIC Sans";
+    font-family: 'Authentic';
     /* font-size: 20px; */
     font-style: normal;
     letter-spacing: 3px;
@@ -447,7 +447,7 @@ hr{
   
   .names{
     color: #FFF;
-    font-family: "AUTHENTIC Sans";
+    font-family: 'Authentic';
     font-size: 1em;
     font-weight: 400;
     line-height: 28px;
@@ -482,7 +482,7 @@ hr{
         display: block;
         width: 90%;
         color: #FFF;
-        font-family: "AUTHENTIC Sans";
+        font-family: 'Authentic';
         font-size: 1em;
         font-weight: 400;
         line-height: 2em;
@@ -494,7 +494,7 @@ hr{
     }
     .mobile-student-list-title {
         color: #FFF;
-        font-family: "AUTHENTIC Sans";
+        font-family: 'Authentic';
         text-align: center;
         font-style: normal;
         letter-spacing: 4px;
