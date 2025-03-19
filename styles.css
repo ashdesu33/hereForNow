@@ -63,6 +63,7 @@
     align-items: center;
     @media (max-width: 800px) {
         /* … */
+        height: 85vh;
         width: 84vw;
 
     }
@@ -142,8 +143,8 @@
     opacity: 0.1; /* Make element invisible slowly */
     @media (max-width: 800px) {
         /* … */
-        transition: opacity 1s ease-out; /* Slow fade-out */
-        opacity: .05;
+        transition: opacity .8s ease-out; /* Slow fade-out */
+        opacity: 0;
 
     }
 }
