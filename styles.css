@@ -48,6 +48,19 @@
     height: 800vh;
 }
 
+.show-info {
+    position: absolute;
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: 600;
+    transform: translateY(10vh);
+    text-align: center;
+    @media (max-width: 800px) {
+        font-size: .8em;
+        transform: translateY(43vh);
+    }
+}
+
 .clock {
     -webkit-filter: drop-shadow( 0px 0px 3px var(--main-white));
     filter: drop-shadow( 0px 0px 3px var(--main-white));
@@ -63,7 +76,7 @@
     align-items: center;
     @media (max-width: 800px) {
         /* … */
-        height: 85vh;
+        height: 75vh;
         width: 84vw;
 
     }
@@ -122,7 +135,7 @@
     color: var(--main-white);
     text-align: center;
     transform: translate(-50%, -50%);
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     font-weight: bolder;
     opacity: 0.1;
     transition: opacity 3s ease-out;
@@ -210,7 +223,7 @@ p {
   
   .statement-text{
     color: #FFF;
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     font-size: 1em;
     line-height: 25px;
     font-style: normal;
@@ -258,7 +271,7 @@ p {
 
 .project{
     aspect-ratio: 1 /1.5;
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     max-width: 100%;
     font-weight: bolder;
     border: solid #0071b7 0.5px;
@@ -348,7 +361,7 @@ hr{
 }
 .project{
     aspect-ratio: 1 /1.8;
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     max-width: 100%;
     font-weight: normal;
     border: solid #0D6BA5 0.5px;
@@ -441,7 +454,7 @@ hr{
   }
   .team-title{
     color: #FFF;
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     /* font-size: 20px; */
     font-style: normal;
     letter-spacing: 3px;
@@ -454,7 +467,7 @@ hr{
   
   .names{
     color: #FFF;
-    font-family: 'Authentic';
+    font-family: 'Authentic', Arial, Helvetica, sans-serif;
     font-size: 1em;
     font-weight: 400;
     line-height: 28px;
@@ -513,7 +526,7 @@ hr{
         display: block;
         width: 90%;
         color: #FFF;
-        font-family: 'Authentic';
+        font-family: 'Authentic', Arial, Helvetica, sans-serif;
         font-size: 1em;
         font-weight: 400;
         line-height: 2em;
@@ -525,7 +538,7 @@ hr{
     }
     .mobile-student-list-title {
         color: #FFF;
-        font-family: 'Authentic';
+        font-family: 'Authentic', Arial, Helvetica, sans-serif;
         text-align: center;
         font-style: normal;
         letter-spacing: 4px;
