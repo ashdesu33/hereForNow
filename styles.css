@@ -139,7 +139,7 @@
     font-family: 'Authentic', Arial, Helvetica, sans-serif;
     font-weight: bold;
     opacity: 0.1;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     transition: opacity 3s ease-out;
     @media (max-width: 800px) {
         /* … */
@@ -484,6 +484,25 @@ hr{
 .student-item.clickable {
     color: #ffffff; 
     cursor: pointer;
+}
+
+/* sticky button */
+#sticky-button {
+    position: fixed;
+    width: 170px;
+    height: 170px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
   /* Adjust aspect ratio dynamically */
 @media screen and (max-aspect-ratio: 16/9) { 
