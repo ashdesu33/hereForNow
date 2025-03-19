@@ -124,7 +124,6 @@ function observeProjects() {
 let lastScrollTop = 0; // Initialize variable to store the last scroll position
 
 $(window).on("scroll", function () {
-<<<<<<< HEAD
     let currentScrollTop = $(this).scrollTop();
 
     if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.8) {
@@ -133,15 +132,6 @@ $(window).on("scroll", function () {
             console.log("test")
             loadMoreProjects(); // Load more projects when near bottom
         }
-=======
-    if ($(window).width() <= 768){
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.5) {
-            loadMoreProjects(); 
-        }
-    }
-    else if ($(window).scrollTop() + $(window).height() >= $(document).height()*0.1) {
-        loadMoreProjects(); 
->>>>>>> b66f2614ffa7f857c9939c6ba3bda80725a1f3a1
     }
     lastScrollTop = currentScrollTop;
 });
