@@ -49,6 +49,11 @@
     height: 800vh;
 }
 
+html {
+    background-color: var(--main-blue);
+
+}
+
 .show-info {
     position: absolute;
     /* font-family: 'Authentic', Arial, Helvetica, sans-serif; */
