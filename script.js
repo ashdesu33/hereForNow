@@ -103,19 +103,15 @@ function addClockNumbers() {
 }
 
 addClockNumbers();
-let nameElements = Array.from(clockFace.children).slice(1).slice(0, -1)
-nameElements[0].classList.toggle("show")
-nameElements[0].classList.toggle("hide")
-
+let nameElements = Array.from(clockFace.children).slice(3)
 
 function findClosestValue(A, arr) {
-    let adjustedAngle = (A + 6 + 360) % 360; //Li added 6 degree here because sometimes the name and hand doesn't match
     let closestIndex = -1;
     let closestDifference = Infinity;
 
     // Loop through the array
     for (let i = 0; i < arr.length; i++) {
-        const difference = Math.abs(arr[i] - adjustedAngle);
+        const difference = Math.abs(arr[i] - A);
 
         // Update if the current difference is smaller than the previously found one
         if (difference < closestDifference) {
@@ -123,7 +119,6 @@ function findClosestValue(A, arr) {
             closestIndex = i;
         }
     }
-
     return closestIndex;
 }
 
@@ -174,15 +169,13 @@ function applyRotation() {
 
 // Function to highlight a name and unhighlight others
 function highlightName(index) {
-    nameElements.forEach((el, i) => {
-        if (i === index) {
-            el.classList.remove("hide");
-            el.classList.add("show");
-        } else {
-            el.classList.remove("show");
-            el.classList.add("hide");
-        }
-    });
+    nameElements[index].classList.remove("hide")
+    nameElements[index].classList.add("show");
+    setTimeout(() => {
+        nameElements[index].classList.remove("show");
+        nameElements[index].classList.add("hide");    
+    }, 200);  
+
 }
 
 // Live update every frame for smooth second-hand motion
