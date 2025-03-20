@@ -126,6 +126,14 @@ html {
     }
 }
 
+.minute-hand {
+    background-color: var(--main-white);
+    height: 30%;
+    @media (max-width: 800px) {
+        height: 15%;
+    }
+}
+
 .hour-hand {
     background-color: var(--main-white);
     height: 20%;

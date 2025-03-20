@@ -108,14 +108,14 @@ nameElements[0].classList.toggle("show")
 nameElements[0].classList.toggle("hide")
 
 
-// function for later to find the location in an array of the most similar value
 function findClosestValue(A, arr) {
+    let adjustedAngle = (A + 6 + 360) % 360; //Li added 6 degree here because sometimes the name and hand doesn't match
     let closestIndex = -1;
-    let closestDifference = Infinity;  // Start with a very large number.
+    let closestDifference = Infinity;
 
     // Loop through the array
     for (let i = 0; i < arr.length; i++) {
-        const difference = Math.abs(arr[i] - A);  // Calculate the absolute difference between A and the current element
+        const difference = Math.abs(arr[i] - adjustedAngle);
 
         // Update if the current difference is smaller than the previously found one
         if (difference < closestDifference) {
@@ -129,47 +129,89 @@ function findClosestValue(A, arr) {
 
 let secondHand = document.querySelector('.second-hand');
 let hourHand = document.querySelector('.hour-hand');
+let minuteHand = document.querySelector('.minute-hand'); 
 
 let timer = null; 
 
 const d = new Date();
-let hourRotation = ((d.getHours() % 12) * 30)
+let hourRotation = ((d.getHours() % 12) * 30) + (d.getMinutes() * 0.5); // Hour + minute movement
+let minuteRotation = (d.getMinutes() * 6) + (d.getSeconds() * 0.1); // Minute movement includes seconds
 hourHand.style.transform = `rotate(${hourRotation}deg)`;
+minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
 
 
+let baseSecondRotation = 0;
+let baseMinuteRotation = 0;
+let additionalRotation = 0;
+let lastScrollTime = Date.now();
+
+// Function to update the second hand and highlight names
+function updateSecondHand() {
+    const now = new Date();
+    baseSecondRotation = now.getSeconds() * 6 + now.getMilliseconds() * 0.006; // Smooth motion
+    applyRotation();
+}
+
+function updateMinuteHand() {
+    const now = new Date();
+    baseMinuteRotation = now.getMinutes() * 6 + now.getSeconds() * 0.1; // Smooth minute movement
+    let baseHourRotation = (now.getHours() % 12) * 30 + now.getMinutes() * 0.5; // Smooth hour movement
+
+    minuteHand.style.transform = `rotate(${baseMinuteRotation}deg)`;
+    hourHand.style.transform = `rotate(${baseHourRotation}deg)`;
+}
+
+// Function to normalize the rotation angle and apply highlighting
+function applyRotation() {
+    let totalRotation = (baseSecondRotation + additionalRotation) % 360;
+    if (totalRotation < 0) totalRotation += 360; // Ensure positive rotation
+
+    secondHand.style.transform = `rotate(${totalRotation}deg)`;
+
+    let closestIndex = findClosestValue(totalRotation, nameAngle);
+    highlightName(closestIndex);
+}
+
+// Function to highlight a name and unhighlight others
+function highlightName(index) {
+    nameElements.forEach((el, i) => {
+        if (i === index) {
+            el.classList.remove("hide");
+            el.classList.add("show");
+        } else {
+            el.classList.remove("show");
+            el.classList.add("hide");
+        }
+    });
+}
+
+// Live update every frame for smooth second-hand motion
+function animateSecondHand() {
+    requestAnimationFrame(animateSecondHand);
+    updateSecondHand();
+    updateMinuteHand();
+}
+animateSecondHand();
+
+// Scroll event listener
 window.addEventListener('scroll', function() {
-    if(timer !== null) {
-        clearTimeout(timer);      
-        // Get the scroll position
-        let scrollPosition = window.scrollY;
-
-        // Calculate the rotation of the second hand based on scroll position
-        let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
-
-        // Apply the rotation to the second hand
-        secondHand.style.transform = `rotate(${rotation}deg)`;
-    
-        let value = findClosestValue(rotation, nameAngle)
-        nameElements[value].classList.remove("hide")
-        nameElements[value].classList.add("show");
-    
-        setTimeout(() => {
-            nameElements[value].classList.remove("show");
-            nameElements[value].classList.add("hide");    
-        }, 200);  
+    lastScrollTime = Date.now();
+    if (timer !== null) {
+        clearTimeout(timer);
     }
-    timer = setTimeout(function() {
-          // do something
-          let scrollPosition = window.scrollY;
 
-          // Calculate the rotation of the second hand based on scroll position
-          let rotation = ((scrollPosition % (360*12)) / 12); // Make sure the rotation stays within 360 degrees
-  
-          let value = findClosestValue(rotation, nameAngle)
-          nameElements[value].classList.remove("hide")
-          nameElements[value].classList.add("show");
+    // Get the scroll position
+    let scrollPosition = window.scrollY;
+
+    // Calculate additional rotation from scrolling
+    additionalRotation = ((scrollPosition % (360 * 12)) / 12);
+
+    applyRotation(); // Apply the new rotation and update the name highlight
+
+    timer = setTimeout(() => {
+        additionalRotation = ((window.scrollY % (360 * 12)) / 12);
+        applyRotation();
     }, 200);
 });
-
 
 
