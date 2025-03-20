@@ -44,7 +44,7 @@
 
 /* HOMEPAGE STYLES */
 .homepage {
-    /* background-color: var(--main-blue); */
+    background-color: var(--main-blue);
     width: 100vw;
     height: 800vh;
 }
