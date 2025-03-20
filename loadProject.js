@@ -1,18 +1,9 @@
-
-// const startCam = () => {
-//     const video = document.getElementById('video');
-//     if (navigator.mediaDevices.getUserMedia) {
-//         navigator.mediaDevices.getUserMedia({ video: true })
-//             .then(stream => {
-//                 video.srcObject = stream;
-//             })
-//             .catch(error => {
-//                 console.error("Something went wrong!", error);
-//             });
-//     } else {
-//         console.log("getUserMedia not supported on your browser!");
-//     }
-// };
+function toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+    );
+  }
 
 // $(document).ready(() => {
 //     startCam();
@@ -74,9 +65,9 @@ function loadMoreProjects() {
                 <div class="project-info">
                     <p class="index">${loadedCount + 1}</p>
                     <hr>
-                    <h3 class="project-title">${title}</h3>
+                    <h3 class="project-title">${title.replace(/"/g, "")}</h3>
                     <p class="project-author">${author}</p>
-                    <p class="project-media">${media}</p>
+                    <p class="project-media">${toTitleCase(media.replace(/"/g, ""))}</p>
                 </div>
                 <div class="project-image">
                     ${mediaElement}
