@@ -134,8 +134,8 @@ let minuteHand = document.querySelector('.minute-hand');
 let timer = null; 
 
 const d = new Date();
-let hourRotation = ((d.getHours() % 12) * 30) + (d.getMinutes() * 0.5); // Hour + minute movement
-let minuteRotation = (d.getMinutes() * 6) + (d.getSeconds() * 0.1); // Minute movement includes seconds
+let hourRotation = 210;         
+let minuteRotation = 0;          
 hourHand.style.transform = `rotate(${hourRotation}deg)`;
 minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
 
@@ -152,14 +152,14 @@ function updateSecondHand() {
     applyRotation();
 }
 
-function updateMinuteHand() {
-    const now = new Date();
-    baseMinuteRotation = now.getMinutes() * 6 + now.getSeconds() * 0.1; // Smooth minute movement
-    let baseHourRotation = (now.getHours() % 12) * 30 + now.getMinutes() * 0.5; // Smooth hour movement
+// function updateMinuteHand() {
+//     const now = new Date();
+//     baseMinuteRotation = now.getMinutes() * 6 + now.getSeconds() * 0.1; // Smooth minute movement
+//     let baseHourRotation = (now.getHours() % 12) * 30 + now.getMinutes() * 0.5; // Smooth hour movement
 
-    minuteHand.style.transform = `rotate(${baseMinuteRotation}deg)`;
-    hourHand.style.transform = `rotate(${baseHourRotation}deg)`;
-}
+//     minuteHand.style.transform = `rotate(${baseMinuteRotation}deg)`;
+//     hourHand.style.transform = `rotate(${baseHourRotation}deg)`;
+// }
 
 // Function to normalize the rotation angle and apply highlighting
 function applyRotation() {
