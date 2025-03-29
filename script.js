@@ -28,7 +28,7 @@ const names = [
    { name: "Mandy Liu", website: "" },
    { name: "Manna Patiparnprechavut", website: "" },
    { name: "Miko Sellier", website: "https://mikospla.net" },
-   { name: "Minah Kim", website: "" },
+   { name: "Minah Kim", website: "https://minaherinkim.com/" },
    { name: "Radhika Chauhan", website: "https://radhikachauhan.com/" },
    { name: "Ritvi Gilara", website: "" },
    { name: "Ryan Yan", website: "https://ryanyan.ca/" },
