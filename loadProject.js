@@ -84,30 +84,56 @@ function loadMoreProjects() {
  * Observe projects and fade them in when they enter the viewport
  */
 function observeProjects() {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+        // MOBILE: Sequential fade-in without IntersectionObserver
+        $(".project.hidden").each(function (i) {
+            const $project = $(this);
+            setTimeout(() => {
+                $project.removeClass("hidden").css({
+                    opacity: 1,
+                    transform: "translateY(0)",
+                    transition: "opacity 0.8s ease-out, transform 0.8s ease-out"
+                });
+
+                $project.find(".lazy-media").each(function () {
+                    const $media = $(this);
+                    if ($media.is("img, video, embed")) {
+                        $media.fadeTo(800, 1);
+                    }
+                });
+            }, i * 150); // stagger slightly for smoothness
+        });
+        return;
+    }
+
+    // DESKTOP: use IntersectionObserver for lazy reveal
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 $(entry.target).css({
                     transform: "translateY(0)",
                     transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
-                    opacity:1
+                    opacity: 1
                 });
 
                 $(entry.target).find(".lazy-media").each(function () {
                     $(this).on("load", function () {
-                        $(this).fadeTo(600, 1); // Fade media in smoothly
-                    }).attr("src", $(this).attr("src")); // Trigger image load
+                        $(this).fadeTo(600, 1);
+                    }).attr("src", $(this).attr("src"));
                 });
-                observer.unobserve(entry.target); // Stop observing once it's loaded
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 }); // Trigger when 30% of the element is visible
+    }, { threshold: 0.1 });
 
     $(".project.hidden").each(function () {
         observer.observe(this);
         $(this).removeClass("hidden");
     });
 }
+
 
 /**
  * Load more projects when reaching the bottom
