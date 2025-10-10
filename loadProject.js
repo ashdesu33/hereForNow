@@ -87,7 +87,7 @@ function observeProjects() {
     const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
-        // MOBILE: Sequential fade-in without IntersectionObserver
+        // MOBILE: Disable observers + scroll loading; just fade in all projects
         $(".project.hidden").each(function (i) {
             const $project = $(this);
             setTimeout(() => {
@@ -103,12 +103,12 @@ function observeProjects() {
                         $media.fadeTo(800, 1);
                     }
                 });
-            }, i * 150); // stagger slightly for smoothness
+            }, i * 120); // smooth staggered fade
         });
         return;
     }
 
-    // DESKTOP: use IntersectionObserver for lazy reveal
+    // DESKTOP: Use observer as normal
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -157,6 +157,8 @@ const maxBatches = 16; // Prevent excessive calls
 let isLoading = false;
 
 $(window).on("scroll", function () {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
     let currentScrollTop = $(this).scrollTop();
 
     if (!isLoading && loadedBatches < maxBatches && $(window).scrollTop() + $(window).height() >= $(document).height() * 0.8) {
