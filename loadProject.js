@@ -15,7 +15,7 @@ function toTitleCase(str) {
  $(document).ready(function () {
     let projectsData = []; // Stores project rows from TSV
     let loadedCount = 0; // Number of loaded projects per scroll
-    const loadBatch = 8; // Number of projects to load per batch
+    const loadBatch = 128; // Number of projects to load per batch
     const $container = $("#test-grid");
     /**
      * Function to load the local CSV file using jQuery
